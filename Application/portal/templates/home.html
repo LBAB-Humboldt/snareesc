@@ -1,0 +1,254 @@
+<!-- **************************************** -->
+<!-- **************************************** -->
+<!-- **************************************** -->
+<!-- **************************************** -->
+{% extends "layout.html" %}
+{% block content %}
+<section class="wrapper style1 about">
+  <div class="container">
+    <!--
+    <div class="slider1" class="col-sm-12 col-md-12 col-lg-12">
+      {% for img in images %}
+      <div class="slide">
+        <a href="{{base_url}}/pt-br/profile/{{img['name']}}">
+          <img src="{{img['img']}}"/>
+          <div class="portfolio-overlay">
+            <br/>
+            <h3>{{img['name']}}</h3>
+            <p></p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+     </div>
+     -->
+     <div class=" double">
+      <section class="col-sm-12 col-md-12 col-lg-12">
+        <div class="box highlight about">
+
+          <h3><a href="#">Sistema de análisis del riesgo de extinción de fauna y flora silvestre en Colombia</a></h3>
+          <p align="justify">
+          Colombia ha logrado acumular una larga experiencia alrededor de los análisis de riesgo de extinción en múltiples grupos de especies de fauna y flora. Las instituciones que conforman el Comité Nacional de Categorización de Especies Amenazadas que ayudaron a impulsar y generar las primeras ediciones de los libros rojos han consolidado importantes procesos en la evaluación de riesgo de extinción de especies en el país. Pese a esto, Colombia enfrenta ahora nuevos retos que consoliden procesos con mayor impacto, periodicidad y con una mayor cobertura taxonómica, es decir, que incorpore diferentes grupos de especies.
+          <br/>
+          <br/>
+          El sistema de análisis de riesgo de extinción incluye no solo aspectos de coordinación de procesos de evaluación de especies a través de las diferentes redes sino que además, presenta una plataforma técnica que integra y articula las herramientas disponibles para la evaluación de riesgo de extinción de especies.
+          <br/>
+          <br/>
+          Gracias a los esfuerzos conjuntos entre el Instituto Humboldt y la dirección de Bosques Biodiversidad y Servicios Ecosistémicos del Ministerio de Ambiente y Desarrollo Sostenible, la plataforma para fauna y flora, adaptada del desarrollo realizado por CNC Flora en Brasil, y que integra además componentes del SiB Colombia como el catálogo de especies y la información geográfica, permite la consulta de la lista de especies de fauna y flora que han sido evaluadas en el país bajo los criterios de la UICN, y además sirve como una posibilidad de portal de trabajo para evaluar el riesgo de extinción de las especies silvestres de Colombia.
+          </p>
+        </div>
+      </section>
+      <!-- ************************************************************************************** -->
+      <!-- ************************************************************************************** -->
+      <!-- ************************************************************************************** -->
+      <section class="box-charts">
+        <div class="col-sm-3 col-md-3 col-lg-3 box">
+
+          <h3 class="title-chart title-chart-one">Especies de Flora</h3>
+          <div class="box-chart chart-one">
+              <strong>{{especies}}</strong>
+              <div class="layer"></div>
+          </div>
+          <div class="chart-layer-one">
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 box">
+          <h3 class="title-chart title-chart-two">Clasificadas</h3>
+          <div class="box-chart chart-two">
+              <strong>{{clasificadas}}</strong>
+              <div class="layer"></div>
+          </div>
+          <div class="chart-layer-two">
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 box">
+          <h3 class="title-chart title-chart-three">Amenazadas</h3>
+          <div class="box-chart chart-three">
+              <strong>{{amenazadas}}</strong>
+              <div class="layer"></div>
+          </div>
+          <div class="chart-layer-three">
+          </div>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 box">
+          <h3 class="title-chart title-chart-four">Planes de Acción</h3>
+          <div class="box-chart chart-four">
+              <strong>{{accion}}</strong>
+              <div class="layer"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+      <!-- ************************************************************************************** -->
+      <!-- ************************************************************************************** -->
+      <!-- ************************************************************************************** -->
+<section class="wrapper style2 ">
+    <div class="container">
+      <h3 class="col-sm-12 col-md-12 col-lg-12 title ">Libros Rojos</h3>
+    <div class="row">
+    <!-- ****************************************************************** -->
+    <!-- ****************************************************************** -->
+      <section class="col-sm-12 col-md-12 col-lg-12">
+        <div class="box post">
+            <a target="_blank" href="{{static_url}}/pdf/documentos/librosrojos/libroRojo1.pdf" id="espinhaco" style="text-decoration: none;" class="image left box-img">
+                <img src="{{static_url}}/images/projetos/librosrojos/libroRojo1.png"/>
+            </a>
+            <div class="inner">
+                <h3>
+                    <a target="_blank" href="{{static_url}}/pdf/documentos/librosrojos/libroRojo1.pdf" id="espinhaco2" style="text-decoration: none;">
+                        Libro rojo de briófitas de Colombia (Linares &amp; Uribe-Meléndez, 2002)
+                    </a>
+                </h3>
+                <p>
+                Disponible en: <a target="_blank" href="http://www.humboldt.org.co/es/component/k2/item/195-libro-rojo-de-briofitas-de-colombia-la-serie-libros-rojos-de-especies-amenazadas">Anexo</a>
+                </p>
+            </div>
+        </div>
+      </section>
+    <!-- ****************************************************************** -->
+    <!-- ****************************************************************** -->
+      <section class="col-sm-12 col-md-12 col-lg-12">
+        <div class="box post">
+            <a target="_blank" href="{{static_url}}/pdf/documentos/librosrojos/libroRojo2.pdf" id="espinhaco" style="text-decoration: none;" class="image left box-img">
+                <img src="{{static_url}}/images/projetos/librosrojos/libroRojo2.png"/>
+            </a>
+            <div class="inner">
+                <h3>
+                    <a target="_blank" href="{{static_url}}/pdf/documentos/librosrojos/libroRojo2.pdf" id="espinhaco2" style="text-decoration: none;">
+                        Libro rojo de plantas fanerógamas de Colombia. Volumen 1: Chryssobalanaceae, Dichapetalaceae y Lecythidaceae (Calderón et al., 2002)
+                    </a>
+                </h3>
+                <p>
+                Disponible en: <a target="_blank" href="http://www.humboldt.org.co/es/component/k2/item/462-libro-rojo-de-plantas-fanerogramas-de-colombia">Anexo</a>
+                </p>
+            </div>
+        </div>
+      </section>
+    <!-- ****************************************************************** -->
+    <!-- ****************************************************************** -->
+      <section class="col-sm-12 col-md-12 col-lg-12">
+        <div class="box post">
+            <a target="_blank" href="{{static_url}}/pdf/documentos/librosrojos/libroRojo3.pdf" id="espinhaco" style="text-decoration: none;" class="image left box-img">
+                <img src="{{static_url}}/images/projetos/librosrojos/libroRojo3.png"/>
+            </a>
+            <div class="inner">
+                <h3>
+                    <a target="_blank" href="{{static_url}}/pdf/documentos/librosrojos/libroRojo3.pdf" id="espinhaco2" style="text-decoration: none;">
+                        Libro rojo de plantas de Colombia. Volumen 2: Palmas, frailejones y zamias (Calderón et al., 2005)
+                    </a>
+                </h3>
+                <p>
+                Disponible en: <a target="_blank" href="http://www.humboldt.org.co/es/component/k2/item/277-libro-rojo-de-plantas-de-colombia-vol-2-palmas-frailejones-y-zamias-serie-libros-rojos-de-especies-amenazadas">Anexo</a>
+                </p>
+            </div>
+        </div>
+      </section>
+    <!-- ****************************************************************** -->
+    <!-- ****************************************************************** -->
+      <section class="col-sm-12 col-md-12 col-lg-12">
+        <div class="box post">
+            <a target="_blank" href="{{static_url}}/pdf/documentos/librosrojos/libroRojo4.pdf" id="espinhaco" style="text-decoration: none;" class="image left box-img">
+                <img src="{{static_url}}/images/projetos/librosrojos/libroRojo4.png"/>
+            </a>
+            <div class="inner">
+                <h3>
+                    <a target="_blank" href="{{static_url}}/pdf/documentos/librosrojos/libroRojo4.pdf" id="espinhaco2" style="text-decoration: none;">
+                        Libro rojo de plantas de Colombia. Volumen 3: Las bromelias, las labiadas y las pasifloras (García &amp; Galeano, 2006)
+                    </a>
+                </h3>
+                <p>
+                Disponible en: <a target="_blank" href="http://biblovirtual.minambiente.gov.co:3000/DOCS/MEMORIA/MMA-0459-V3/MMA-0459-V3_CAPITULO1.pdf">Anexo</a>
+                </p>
+            </div>
+        </div>
+      </section>
+    <!-- ****************************************************************** -->
+    <!-- ****************************************************************** -->
+      <section class="col-sm-12 col-md-12 col-lg-12">
+        <div class="box post">
+            <a target="_blank" href="{{static_url}}/pdf/documentos/librosrojos/libroRojo5.pdf" id="espinhaco" style="text-decoration: none;" class="image left box-img">
+                <img src="{{static_url}}/images/projetos/librosrojos/libroRojo5.png"/>
+            </a>
+            <div class="inner">
+                <h3>
+                    <a target="_blank" href="{{static_url}}/pdf/documentos/librosrojos/libroRojo5.pdf" id="espinhaco2" style="text-decoration: none;">
+                        Libro rojo de plantas de Colombia. Volumen 4: Especies maderables amenazadas, primera parte (Cárdenas &amp; Salinas, 2007)
+                    </a>
+                </h3>
+                <p>
+                Disponible en: <a target="_blank" href="http://www.sinchi.org.co/index.php/revista-colombia-amazonica/item/92-libro-rojo">Anexo</a>
+                </p>
+            </div>
+        </div>
+      </section>
+    <!-- ****************************************************************** -->
+    <!-- ****************************************************************** -->
+    <!-- ****************************************************************** -->
+    </div>
+    </div>
+</section>
+<!-- **************************************** -->
+<!-- **************************************** -->
+<section class="wrapper style1 news" id='fb_news'>
+  <div class="container">
+    <h3 class="col-sm-12 col-md-12 col-lg-12 title">Noticias</h3>
+    <div class="row" id='fb_news_row'>
+      <h3>Cargando...</h3>
+    </div>
+  </div>
+  <!--
+  <template id="noticia_tmpl">
+  -->
+  <section class="col-sm-12 col-md-4 col-lg-4">
+    <div class="box post">
+      <div class="box-fb-img">
+        <a href="#" class="image "><img src="" alt="" /></a>
+      </div>
+      <div class="inner news-description">
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+  </section>
+  </template>
+</section>
+<!-- **************************************** -->
+<!-- **************************************** -->
+<script type="text/javascript">
+  $(function(){
+      FB.api("/cncflora/posts?access_token="+app_token,function(response) {
+        document.querySelector("#fb_news_row").innerHTML="";
+        var count=0;
+        for(var i=0;i<response.data.length &amp;&amp; count < 3;i++) {
+          var post = response.data[i];
+          if(typeof post == 'object' 
+            &amp;&amp; (post.type=='photo' || post.type == 'video')
+            &amp;&amp; typeof post.message == 'string' 
+            &amp;&amp; post.message.length >= 5) {
+            var section = render('#noticia_tmpl');
+            section.querySelector("img").src = post.picture;
+            section.querySelector("h3").textContent = "";
+            section.querySelector("a").href = post.link;
+            section.querySelector("p").textContent = post.message.slice(0,150)+"...";
+            section.querySelector("section").setAttribute("id","fb_"+post.object_id);
+            section.into('#fb_news_row');
+            (function(post){
+             FB.api("/"+post.object_id+"?access_token="+app_token,function(response){
+               var src = response.source;
+               if(post.type=='video') src = response.picture;
+               document.querySelector("#fb_"+response.id+" img").src = src;
+               });
+             })(post);
+            count++;
+          }
+        }
+      });
+  });
+</script>
+{% endblock %}
+<!-- **************************************** -->
+<!-- **************************************** -->
+<!-- **************************************** -->
+<!-- **************************************** -->

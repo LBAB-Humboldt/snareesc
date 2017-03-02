@@ -1,0 +1,49 @@
+<!-- **************************************** -->
+<!-- **************************************** -->
+<!-- **************************************** -->
+<!-- **************************************** -->
+{% extends "layout-content.html" %}
+{% block content %}
+<section class="wrapper style1 document-page view-page">
+  <div class="container">
+    <div class="row">
+      <div class="box-section col-sm-12 col-md-12 col-lg-12">
+        <br/>
+        <h3>Libros Rojos</h3>
+        <div class="sidebar-menu">
+            {% include "content/"+language+"/document/libros.html" %}
+        </div>
+        </div>
+      <div class=" box-section col-sm-12 col-md-12 col-lg-12">
+        <h3>Documentos Guía Metodológicos</h3>
+        <div class="sidebar-menu">
+            {% include "content/"+language+"/document/guias.html" %}
+        </div>
+        </div>
+      <div class=" box-section col-sm-12 col-md-12 col-lg-12">
+        <h3>Resoluciones y Normatividad Legal</h3>
+        <div class="sidebar-menu">
+            {% include "content/"+language+"/document/resoluciones.html" %}
+        </div>
+        </div>
+      <div class=" box-section col-sm-12 col-md-12 col-lg-12">
+        <h3>Planes de Mejora</h3>
+        <div class="sidebar-menu">
+            {% include "content/"+language+"/document/planesmejora.html" %}
+        </div>
+      </div>
+      <div class="box-section col-sm-12 col-md-12 col-lg-12">
+        <br/>
+        <h3>Memorias de Eventos</h3>
+        <div class="sidebar-menu">
+          {% include "content/"+language+"/document/eventos.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+<!-- **************************************** -->
+<!-- **************************************** -->
+<!-- **************************************** -->
+<!-- **************************************** -->

@@ -1,0 +1,179 @@
+{% extends "layout-content.html" %}
+{% block content %}
+<!-- <article class="container"> -->
+<section class="wrapper style1 project-page view-page">
+  <div class="container">
+  <section class='especie'>
+    <div class="sixteen columns">
+        <h3 class='specie'>
+          <i>{{assessment["taxon"]["scientificNameWithoutAuthorship"]}}</i> {{assessment["taxon"]["scientificNameAuthorship"]}}
+          <img src="{{static_url}}/images/{{assessment["category"]}}.jpg" alt="{{assessment["category"]}}" class="iucn" />
+        </h3>
+    </div>
+    <style type="text/css"> h4 { font-size: 22px; } </style>
+    <div class="nine columns">
+        <h4>Evaluación del Riesgo de Extinción</h4>
+        <p class='date'><strong>Datos: </strong> {{assessment["date"]}}</p>
+        <p class='criteria'><strong>Criterio: </strong> {{assessment["criteria"]|default("N/A")}}</p>
+        <p class='assessor'><strong>Tasador: </strong> {{assessment["assessor"]}}</p>
+        <p class='evaluator'><strong>Revisor: </strong> {{assessment["evaluator"]}}</p>
+        <p class='rationale'> {{assessment["rationale"]|safe}}</p>
+        <!--
+        <br /><p class='especialistas'><strong>Especialistas Bot&acirc;nicos</strong>: ".implode($spp->Especialistas,", ").".</p>";
+        <p class='especialistas'><strong>Analistas de Dados</strong>: ".implode($spp->Analistas,", ").".</p>";
+        <p class='especialistas'><strong>Analistas SIG</strong>: ".implode($spp->AnalistasSIG,", ").".</p>";
+        <?php include 'ficha.php' ?>
+        -->
+        {% if profile["taxonomicNotes"] %}
+        <h4>Notas Taxonómicas</h4>
+        <p>{{profile["taxonomicNotes"]["notes"]|safe}}</p>
+        {% endif %}
+        <!--
+        <h4>Sin&ocirc;nimos</h4>
+        <ul>
+        </ul>
+        -->
+    </div>
+
+    <div class="seven columns map">
+      {% if 'current' in assessment['taxon'] %}
+      <h4>Taxonomía Actual</h4>
+      <p>Advertencia: la taxonomía actual de la información puede ser diferente de la fecha de valoración.</p>
+      <p>
+        <strong>Nombre Válido:</strong>: 
+          <i>{{assessment['taxon']['current']['scientificNameWithoutAuthorship']}}</i>
+          {{assessment['taxon']['current']['scientificNameAuthorship']}};
+      </p>
+        {% if assessment['taxon']['current']['synonyms']|length >= 1 %}
+        <p>
+          <strong>Sinónimos</strong>:
+          <ul>
+            {% for syn in assessment['taxon']['current']['synonyms'] %}
+            <li>
+              &gt;
+              <i>{{syn['scientificNameWithoutAuthorship']}}</i>
+              {{syn['scientificNameAuthorship']}};
+            </li>
+            {% endfor %}
+          </ul>
+        </p>
+        {% endif %}
+      {% endif %}
+      <h4>Mapa de distribución</h4>
+      <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas/{{assessment["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
+    </div>
+
+    <div class="sixteen columns">
+      {% if profile["economicValue"] and profile["economicValue"]["details"] and profile["economicValue"]["details"]|length > 1 %}
+      <h4>Potencial de Valor Económico:</h4>
+      <p>{{profile["economicValue"]["details"]|safe}}</p>
+      {% endif %}
+
+      {% if profile["population"] and profile["population"]["resume"] and profile["population"]["resume"]|length > 1 %}
+      <h4>Datos Poblacionales:</h4>
+      <p>{{profile["population"]["resume"]|safe}}</p>
+      {% endif %}
+
+      {% if profile["distribution"] and profile["distribution"]["resume"] and profile["distribution"]["resume"]|length > 1 %}
+      <h4>Distribución</h4>
+      <p>{{profile["distribution"]["resume"]|safe}}</p>
+      {% endif %}
+
+      {% if profile["ecology"] and profile["ecology"]["resume"] and profile["ecology"]["resume"]|length > 1 %}
+      <h4>Ecología</h4>
+      <p>{{profile["ecology"]["resume"]|safe}}</p>
+      {% endif %}
+
+      {% if profile["reproduction"] and profile["reproduction"]["resume"] and profile["reproduction"]["resume"]|length > 1 %}
+      <h4>Reproducción</h4>
+      <p>{{profile["reproduction"]["resume"]|safe}}</p>
+      {% endif %}
+    </div>
+    <div class="sixteen columns">
+
+      {% if profile["threats"] %}
+      <h4>Amenazas</h4>
+      {% for threat in profile["threats"] %}
+      {% if threat["threat"] %}
+      <p>
+          <strong>{{threat["threat"]}}</strong><br />
+          {% if threat["stress"] %}
+              <strong>Stress</strong>
+              {{threat["stress"]}}
+          <br />
+          {% endif %}
+          {% if threat["incidence"] %}
+              <strong>Incidencia</strong>
+              {{threat["incidence"]}}
+          <br />
+          {% endif %}
+          {% if threat["severity"] %}
+              <strong>Severidad</strong>
+              {{threat["severity"]}}
+          <br />
+          {% endif %}
+          {% if threat["details"] %}
+              <strong>Detalles</strong>
+              {{threat["details"]}}
+            <br />
+          {% endif %}
+      </p>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+
+      {% if profile["actions"] %}
+      <h4>Acciones de Conservación</h4>
+      {% for action in profile["actions"] %}
+      {% if action["action"] %}
+      <p>
+        <strong>{{action["action"]}}</strong><br />
+        {% if action["situation"] %}
+        <b>Situación</b>: {{action['situation']}} <br />
+        {% endif %}
+        {% if action["details"] %}
+        <b>Observaciones</b>: {{action['details']}}  <br />
+        {% endif %}
+      </p>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+
+
+      {% if profile["uses"] %}
+      <h4>Usos</h4>
+      {% for use in profile["users"] %}
+      {% if use["use"] %}
+      <p>
+      <strong>{{use["use"]}}</strong><br />
+        {% if use["user"]["details"] %}
+        <b>Observaciones:</b>: {{use["details"]}}
+        {% endif %}
+      </p>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="sixteen columns biblio">
+      <h4>Bibliografía</h4>
+      {% for ref in references %}
+      <p>{{ref}}</p>
+      {% endfor %}
+    </div>
+  </section>
+ </div>
+</section>
+
+<!-- </article> -->
+<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-13203805-2']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+</script>
+{% endblock %}

@@ -1,0 +1,111 @@
+<!-- *************************************** -->
+<!-- *************************************** -->
+<!-- *************************************** -->
+{% extends "layout-content.html" %}
+{% block content %}
+<section class="wrapper style1 redlist-page">
+  <div class="container">
+    <div class="row">
+      <div class="sidebar col-sm-12 col-md-3 col-lg-3">
+        <h3>Lista de Especies por Familia</h3>
+        <div id="familly" class="sidebar-menu">
+          <input class="search" placeholder="Buscar familia"/>
+          <br/>
+          <br/>
+          <ul class="list">
+            {% for familly in families%}
+              <li><a href="{{base_url}}/{{language}}/listavermelha/{{familly}}" class="name">{{familly}}</a></li>
+            {% endfor %}
+          </ul>
+       </div>
+      </div>
+      <div  class="description col-sm-12 col-md-9 col-lg-9">
+         {% if family_description %}
+            <div id="species" class="family">
+              <h3>{{family}}</h3>
+              <input class="search search-species" placeholder="Buscar especie"/>
+              <br/>
+              <br/>
+              <div class="list">
+              {% for data_family in family_description %}
+              <p class='spp'>
+              <i>
+                <a href="{{base_url}}/{{language}}/profile/{{data_family['taxon']['scientificNameWithoutAuthorship']}}" target="_blank">
+                  {{data_family['taxon']['scientificNameWithoutAuthorship']}}
+                </a>
+              </i>
+                {{data_family['taxon']['scientificNameAuthorship']}}
+                  <span class="category {{data_family['category']}}">{{data_family['category']}}</span>
+                {% if 'current' in data_family['taxon'] %}
+                  <small>
+                  {% if data_family['taxon']['scientificNameWithoutAuthorship'] != data_family['taxon']['current']['scientificNameWithoutAuthorship'] %}
+                    <br />
+                    Nombre actual: 
+                      <i>{{data_family['taxon']['current']['scientificNameWithoutAuthorship']}}</i>
+                      {{data_family['taxon']['current']['scientificNameAuthorship']}}
+                  {% endif %}
+                  {% if data_family['taxon']['current']['synonyms']|length >= 1 %}
+                    <br />
+                    Otros nombres: 
+                    {% for syn in data_family['taxon']['current']['synonyms'] %}
+                      <i>{{syn['scientificNameWithoutAuthorship']}}</i> {{syn['scientificNameAuthorship']}};
+                    {% endfor %}
+                  {% endif %}
+                  </small>
+                {% endif %}
+                </p>
+              {% endfor %}
+              </div>
+            </div>
+         {% else %}
+          {% include "content/"+language+"/listavermelha.html" %}
+         {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- *************************************** -->
+<!-- *************************************** -->
+<!-- *************************************** -->
+<script src="{{static_url}}/js/list.js"></script>
+<script>
+//**********************************************
+//**********************************************
+//**********************************************
+var options = 
+{
+  page: 9999,
+  valueNames: ['name']
+};
+var famillyList = new List('familly', options);
+var spps = document.querySelectorAll(".spp");
+//**********************************************
+//**********************************************
+//**********************************************
+for(var s=0;s<spps.length;s++)
+{
+  var names = spps[s].querySelectorAll("i");
+  var new_names=document.createElement("span");
+  new_names.setAttribute('class','name hide');
+  for(var n=0;n<names.length;n++){
+    new_names.innerHTML += names[n].textContent.trim()+";"
+  }
+  spps[s].appendChild(new_names);
+}
+//**********************************************
+//**********************************************
+//**********************************************
+var optionsspecie = 
+{
+  page: 9999,
+  valueNames: ['name']
+};
+var specieList = new List('species', optionsspecie);
+//**********************************************
+//**********************************************
+//**********************************************
+</script>
+{% endblock %}
+<!-- *************************************** -->
+<!-- *************************************** -->
+<!-- *************************************** -->

@@ -1,0 +1,13 @@
+{
+  "pt-br":{
+        "menu":{
+              "Acciones":"Planeación de Acciones",
+              "redlist":"Lista Roja de Especies Amenazadas",
+              "lista":"Lista de Especies de Flora y Fauna de Colombia",
+              "ameacas":"Factores de Amenaza",
+              "areas":"Áreas Protegidas",
+              "biodiversidade":"Biodiversidad colombiana",
+              "politicas":"Biodiversidad y Políticas Públicas"
+        }
+  }
+}

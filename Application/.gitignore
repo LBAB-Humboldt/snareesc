@@ -1,0 +1,13 @@
+composer.phar
+vendor
+config.ini
+.DS_store
+.vagrant/
+env/
+app.log
+*.pyc
+*.log
+*.sublime-workspace
+*.sublime-project
+*.swp
+*~
